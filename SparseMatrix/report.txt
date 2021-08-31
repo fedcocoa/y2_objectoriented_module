@@ -1,0 +1,14 @@
+Sorting non-zero elements
+I decided to implement merge sort to sort the non-zero elements in an ArrayList<Entry>, to do this I had to create a couple of helper functions.
+
+the 'split' function takes the elements in the ArrayList and seperates them into single elements. This function is linear as it loops through all of the elements in the list once, meaning it always has time complexity O(n).
+the 'pairs' function creates pairs of ArrayLists. The for loop is n/2 and for each iteration, it calls 'sort_combine'. The function would therefore have a time complexity of O(n).
+the 'sort_combine' function takes 2 ArrayLists and combines them while sorting. The worst time complexity will always be the 2 sizes of each of the ArrayLists it is combining, combined. This would be for 2 given ArrayLists of size A and B, O(A+B).
+In the worst case scenario, it would have to combine 2 ArrayLists of equal size n, meaning n + n, therefore O(n).
+the 'sort' function is a combination of all of the formerly mentioned functions. The function starts by splitting the input list into individual elements (O(n)), then starts by making the first set of pairs.
+This always makes an even amount of pairs with the exception of the list being sorted and only having 1 element in it.
+As merge sort uses the 'divide and conquer' method of halfing the space each step, the algorithm should have worst time complexity of O(n*log n).
+
+Adding 2 matrices
+The adding function that I created uses a similar approach to combining 2 lists in the merge sort algorithm. There are 2 pointers that keep track of which entry is referenced from each matrix, as the entries are sorted, incrementing each pointer while checking their positions allows us to add the 2 matrices.
+The function will either increment a single pointer of both until they both reach the end. This results in a worst time complexity of O(N1 + N2), where there would never be an addition carried out and both pointers would have to go over their entire lists each resulting in a sum of the 2 sizes N1 and N2.
